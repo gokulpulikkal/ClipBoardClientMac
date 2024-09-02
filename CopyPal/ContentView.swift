@@ -11,7 +11,6 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(StringItem.sortedByDate()) private var items: [StringItem]
-    @State private var isPastingOperationInProgress = false
 
     var body: some View {
         NavigationStack {
@@ -41,27 +40,12 @@ struct ContentView: View {
                 }
             }
         }
-        .onAppear {
-            watch {
-                if !isPastingOperationInProgress {
-                    addItem(value: $0)
-                }
-                isPastingOperationInProgress = false
-            }
-        }
     }
 
     private func addItemToPastBoard(item: StringItem) {
-        isPastingOperationInProgress = true
+        ClipboardWatcher.shared.inAppPastingInProgress = true
         NSPasteboard.general.prepareForNewContents()
-        let isSuccess = NSPasteboard.general.setString(item.value, forType: .string)
-    }
-
-    private func addItem(value: String) {
-        withAnimation {
-            let newItem = StringItem(timestamp: Date(), value: value)
-            modelContext.insert(newItem)
-        }
+        _ = NSPasteboard.general.setString(item.value, forType: .string)
     }
 
     private func deleteItems(offsets: IndexSet) {
@@ -79,25 +63,6 @@ struct ContentView: View {
             for item in items {
                 modelContext.delete(item)
             }
-        }
-    }
-
-    func watch(using closure: @escaping (_ copiedString: String) -> Void) {
-        let pasteboard = NSPasteboard.general
-        var changeCount = pasteboard.changeCount
-
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            guard let copiedString = NSPasteboard.general.string(forType: .string),
-                  NSPasteboard.general.changeCount != changeCount
-            else {
-                return
-            }
-
-            defer {
-                changeCount = NSPasteboard.general.changeCount
-            }
-
-            closure(copiedString)
         }
     }
 }

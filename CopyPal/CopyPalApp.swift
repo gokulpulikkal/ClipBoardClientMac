@@ -24,12 +24,26 @@ struct CopyPalApp: App {
     }()
 
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        Group {
+            WindowGroup {
+                ContentView()
+                    .onAppear(perform: {
+                        ClipboardWatcher.shared.startWatching(using: sharedModelContainer.mainContext)
+                    })
+            }
+            .commands {
+                CopyPalCommands()
+            }
+            .modelContainer(sharedModelContainer)
+
+            MenuBarExtra("ClipBoard", systemImage: "clipboard", content: {
+                ContentView()
+                    .modelContainer(sharedModelContainer)
+                    .onAppear(perform: {
+                        ClipboardWatcher.shared.startWatching(using: sharedModelContainer.mainContext)
+                    })
+            })
+            .menuBarExtraStyle(.window)
         }
-        .commands {
-            CopyPalCommands()
-        }
-        .modelContainer(sharedModelContainer)
     }
 }
