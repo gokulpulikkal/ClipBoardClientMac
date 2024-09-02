@@ -36,7 +36,7 @@ struct CopyPalApp: App {
             }
             .modelContainer(sharedModelContainer)
 
-            MenuBarExtra("ClipBoard", systemImage: "clipboard", content: {
+            MenuBarExtra("ClipBoard", systemImage: "list.clipboard", content: {
                 ContentView()
                     .modelContainer(sharedModelContainer)
                     .onAppear(perform: {

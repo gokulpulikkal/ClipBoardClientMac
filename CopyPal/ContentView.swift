@@ -14,29 +14,51 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text(item.value)
-                    } label: {
-                        HStack {
-                            Text(item.value)
-                                .lineLimit(2)
-                            Spacer()
-                            Button(action: {
-                                addItemToPastBoard(item: item)
-                            }, label: {
-                                Image(systemName: "document.on.document")
-                            })
+            VStack {
+                if !items.isEmpty {
+                    HStack {
+                        Spacer()
+                        Button(action: deleteAllItems) {
+                            Label("Clear All", systemImage: "trash")
                         }
                     }
-                }
-                .onDelete(perform: deleteItems)
-            }.toolbar {
-                ToolbarItem {
-                    Button(action: deleteAllItems) {
-                        Label("Clear", systemImage: "trash")
+                    .padding([.top, .horizontal])
+                    List {
+                        ForEach(items) { item in
+                            NavigationLink {
+                                Text(item.value)
+                            } label: {
+                                HStack {
+                                    Text(item.value)
+                                        .lineLimit(2)
+                                    Spacer()
+                                    HStack {
+                                        Button(action: {
+                                            addItemToPastBoard(item: item)
+                                        }, label: {
+                                            Image(systemName: "document.on.document")
+                                        })
+
+                                        Button(action: {
+                                            deleteItem(item: item)
+                                        }, label: {
+                                            Image(systemName: "trash")
+                                        })
+                                    }
+                                }
+                            }
+                        }
+                        .onDelete(perform: deleteItems)
                     }
+                } else {
+                    Spacer()
+                    Label(title: {
+                        Text("Clipboard is empty")
+                    }, icon: {
+                        Image(systemName: "clipboard")
+                    })
+                    .padding()
+                    Spacer()
                 }
             }
         }
@@ -53,6 +75,12 @@ struct ContentView: View {
             for index in offsets {
                 modelContext.delete(items[index])
             }
+        }
+    }
+
+    private func deleteItem(item: StringItem) {
+        withAnimation {
+            modelContext.delete(item)
         }
     }
 
