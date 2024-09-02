@@ -15,18 +15,27 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                if !items.isEmpty {
+                List {
                     HStack {
                         Spacer()
-                        Button(action: deleteAllItems) {
-                            Label("Clear All", systemImage: "trash")
+                        Button(action: {
+                            NSApplication.shared.terminate(nil)
+                        }) {
+                            Label("Quit", systemImage: "trash")
+                        }
+                        if !items.isEmpty {
+                            Button(action: deleteAllItems) {
+                                Label("Clear All History", systemImage: "trash")
+                            }
                         }
                     }
-                    .padding([.top, .horizontal])
-                    List {
+                    .padding(.bottom, 5)
+                    .listRowSeparator(.hidden)
+                    if !items.isEmpty {
                         ForEach(items) { item in
                             NavigationLink {
                                 Text(item.value)
+                                    .padding()
                             } label: {
                                 HStack {
                                     Text(item.value)
@@ -50,15 +59,19 @@ struct ContentView: View {
                         }
                         .onDelete(perform: deleteItems)
                     }
-                } else {
-                    Spacer()
-                    Label(title: {
-                        Text("Clipboard is empty")
-                    }, icon: {
-                        Image(systemName: "clipboard")
-                    })
-                    .padding()
-                    Spacer()
+                }
+                .padding(.vertical)
+
+                if items.isEmpty {
+                    VStack {
+                        Label(title: {
+                            Text("Clipboard is empty")
+                        }, icon: {
+                            Image(systemName: "clipboard")
+                        })
+                        .padding()
+                        Spacer()
+                    }
                 }
             }
         }
