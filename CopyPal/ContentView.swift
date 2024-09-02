@@ -18,6 +18,9 @@ struct ContentView: View {
                 List {
                     HStack {
                         Spacer()
+                        Button(action: {}) {
+                            Image(systemName: "info.circle")
+                        }
                         Button(action: {
                             NSApplication.shared.terminate(nil)
                         }) {
@@ -40,6 +43,7 @@ struct ContentView: View {
                                 HStack {
                                     Text(item.value)
                                         .lineLimit(2)
+                                        .help(Text(item.value))
                                     Spacer()
                                     HStack {
                                         Button(action: {
