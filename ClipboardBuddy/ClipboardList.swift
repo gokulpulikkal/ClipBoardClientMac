@@ -12,7 +12,7 @@ struct ClipboardList: View {
     @Environment(\.modelContext) private var modelContext
     @Query(StringItem.sortedByDate()) private var items: [StringItem]
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    
+
     private var columns = [
         GridItem(.adaptive(minimum: 350, maximum: 400), spacing: 15)
     ]
@@ -27,12 +27,12 @@ struct ClipboardList: View {
                             .opacity(0.7)
                         HStack {
                             Text(item.value)
-                                .lineLimit(3)
+                                .lineLimit(2, reservesSpace: true)
                                 .help(Text(item.value))
                             Spacer()
                             HStack {
                                 Button(action: {
-                                    //                            addItemToPastBoard(item: item)
+                                    addItemToPastBoard(item: item)
                                 }, label: {
                                     Image(systemName: "document.on.document")
                                 })
@@ -70,6 +70,16 @@ struct ClipboardList: View {
         withAnimation {
             modelContext.delete(item)
         }
+    }
+
+    private func addItemToPastBoard(item: StringItem) {
+        ClipboardWatcher.shared.inAppPastingInProgress = true
+        #if os(macOS)
+        NSPasteboard.general.prepareForNewContents()
+        _ = NSPasteboard.general.setString(item.value, forType: .string)
+        #else
+        _ = UIPasteboard.general.string = item.value
+        #endif
     }
 }
 

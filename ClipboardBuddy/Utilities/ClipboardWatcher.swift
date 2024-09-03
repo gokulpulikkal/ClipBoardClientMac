@@ -27,11 +27,10 @@ final class ClipboardWatcher {
             return
         } // Prevent starting multiple timers
 
+        isWatching = true
         self.modelContext = modelContext
         #if os(macOS)
         var changeCount = NSPasteboard.general.changeCount
-
-        isWatching = true
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             guard let copiedString = NSPasteboard.general.string(forType: .string),
                   NSPasteboard.general.changeCount != changeCount
@@ -41,6 +40,22 @@ final class ClipboardWatcher {
 
             defer {
                 changeCount = NSPasteboard.general.changeCount
+            }
+            Task {
+                await self.addCopiedStringToModel(copiedString)
+            }
+        }
+        #else
+        var changeCount = UIPasteboard.general.changeCount
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            guard let copiedString = UIPasteboard.general.string,
+                  UIPasteboard.general.changeCount != changeCount
+            else {
+                return
+            }
+
+            defer {
+                changeCount = UIPasteboard.general.changeCount
             }
             Task {
                 await self.addCopiedStringToModel(copiedString)

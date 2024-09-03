@@ -37,11 +37,11 @@ struct ClipboardBuddyApp: App {
         // Handle all other cases
         WindowGroup {
             LaunchView()
-//                    .modelContainer(sharedModelContainer)
-                .modelContainer(previewContainer)
-//                    .onAppear(perform: {
-//                        ClipboardWatcher.shared.startWatching(using: sharedModelContainer.mainContext)
-//                    })
+                .modelContainer(sharedModelContainer)
+//                .modelContainer(previewContainer)
+                .onAppear(perform: {
+                    ClipboardWatcher.shared.startWatching(using: sharedModelContainer.mainContext)
+                })
         }
         #endif
     }
