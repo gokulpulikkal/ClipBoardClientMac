@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
@@ -30,21 +30,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		4B3595C92C83FA17006613E9 /* CopyPal */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CopyPal;
-			sourceTree = "<group>";
-		};
-		4B3595DD2C83FA1A006613E9 /* CopyPalTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CopyPalTests;
-			sourceTree = "<group>";
-		};
-		4B3595E72C83FA1A006613E9 /* CopyPalUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CopyPalUITests;
-			sourceTree = "<group>";
-		};
+		4B3595C92C83FA17006613E9 /* CopyPal */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CopyPal; sourceTree = "<group>"; };
+		4B3595DD2C83FA1A006613E9 /* CopyPalTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CopyPalTests; sourceTree = "<group>"; };
+		4B3595E72C83FA1A006613E9 /* CopyPalUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CopyPalUITests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +175,7 @@
 				};
 			};
 			buildConfigurationList = 4B3595C22C83FA17006613E9 /* Build configuration list for PBXProject "CopyPal" */;
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -197,7 +186,6 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 			);
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 4B3595C82C83FA17006613E9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -403,6 +391,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Clipboard Buddy";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -432,6 +422,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Clipboard Buddy";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
