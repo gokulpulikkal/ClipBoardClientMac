@@ -3,8 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 63;
 	objects = {
+
+/* Begin PBXBuildFile section */
+		4B439AA92C86BF9000415A36 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B439A9E2C86BF9000415A36 /* Preview Assets.xcassets */; };
+		4B439AAA2C86BF9000415A36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B439AA32C86BF9000415A36 /* Assets.xcassets */; };
+		4B439AAB2C86BF9000415A36 /* StringItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B439A9C2C86BF9000415A36 /* StringItem.swift */; };
+		4B439AAC2C86BF9000415A36 /* ClipboardWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B439AA02C86BF9000415A36 /* ClipboardWatcher.swift */; };
+		4B439AAD2C86BF9000415A36 /* QueryHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B439AA12C86BF9000415A36 /* QueryHelpers.swift */; };
+		4B439AAE2C86BF9000415A36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B439AA42C86BF9000415A36 /* ContentView.swift */; };
+		4B439AAF2C86BF9000415A36 /* CopyPalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B439AA62C86BF9000415A36 /* CopyPalApp.swift */; };
+		4B439AB02C86BF9000415A36 /* CopyPalCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B439AA72C86BF9000415A36 /* CopyPalCommands.swift */; };
+		4B439AB32C86BF9500415A36 /* CopyPalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B439AB12C86BF9500415A36 /* CopyPalTests.swift */; };
+		4B439AB72C86BF9900415A36 /* CopyPalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B439AB42C86BF9900415A36 /* CopyPalUITests.swift */; };
+		4B439AB82C86BF9900415A36 /* CopyPalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B439AB52C86BF9900415A36 /* CopyPalUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		4B3595DB2C83FA1A006613E9 /* PBXContainerItemProxy */ = {
@@ -27,13 +41,19 @@
 		4B3595C72C83FA17006613E9 /* CopyPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B3595DA2C83FA1A006613E9 /* CopyPalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopyPalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B3595E42C83FA1A006613E9 /* CopyPalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopyPalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B439A9C2C86BF9000415A36 /* StringItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringItem.swift; sourceTree = "<group>"; };
+		4B439A9E2C86BF9000415A36 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4B439AA02C86BF9000415A36 /* ClipboardWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardWatcher.swift; sourceTree = "<group>"; };
+		4B439AA12C86BF9000415A36 /* QueryHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryHelpers.swift; sourceTree = "<group>"; };
+		4B439AA32C86BF9000415A36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4B439AA42C86BF9000415A36 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4B439AA52C86BF9000415A36 /* CopyPal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CopyPal.entitlements; sourceTree = "<group>"; };
+		4B439AA62C86BF9000415A36 /* CopyPalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyPalApp.swift; sourceTree = "<group>"; };
+		4B439AA72C86BF9000415A36 /* CopyPalCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyPalCommands.swift; sourceTree = "<group>"; };
+		4B439AB12C86BF9500415A36 /* CopyPalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyPalTests.swift; sourceTree = "<group>"; };
+		4B439AB42C86BF9900415A36 /* CopyPalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyPalUITests.swift; sourceTree = "<group>"; };
+		4B439AB52C86BF9900415A36 /* CopyPalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyPalUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		4B3595C92C83FA17006613E9 /* CopyPal */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CopyPal; sourceTree = "<group>"; };
-		4B3595DD2C83FA1A006613E9 /* CopyPalTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CopyPalTests; sourceTree = "<group>"; };
-		4B3595E72C83FA1A006613E9 /* CopyPalUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = CopyPalUITests; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4B3595C42C83FA17006613E9 /* Frameworks */ = {
@@ -63,9 +83,9 @@
 		4B3595BE2C83FA17006613E9 = {
 			isa = PBXGroup;
 			children = (
-				4B3595C92C83FA17006613E9 /* CopyPal */,
-				4B3595DD2C83FA1A006613E9 /* CopyPalTests */,
-				4B3595E72C83FA1A006613E9 /* CopyPalUITests */,
+				4B439AA82C86BF9000415A36 /* CopyPal */,
+				4B439AB22C86BF9500415A36 /* CopyPalTests */,
+				4B439AB62C86BF9900415A36 /* CopyPalUITests */,
 				4B3595C82C83FA17006613E9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +98,63 @@
 				4B3595E42C83FA1A006613E9 /* CopyPalUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4B439A9D2C86BF9000415A36 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4B439A9C2C86BF9000415A36 /* StringItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B439A9F2C86BF9000415A36 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4B439A9E2C86BF9000415A36 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4B439AA22C86BF9000415A36 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4B439AA02C86BF9000415A36 /* ClipboardWatcher.swift */,
+				4B439AA12C86BF9000415A36 /* QueryHelpers.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4B439AA82C86BF9000415A36 /* CopyPal */ = {
+			isa = PBXGroup;
+			children = (
+				4B439A9D2C86BF9000415A36 /* Model */,
+				4B439A9F2C86BF9000415A36 /* Preview Content */,
+				4B439AA22C86BF9000415A36 /* Utilities */,
+				4B439AA32C86BF9000415A36 /* Assets.xcassets */,
+				4B439AA42C86BF9000415A36 /* ContentView.swift */,
+				4B439AA52C86BF9000415A36 /* CopyPal.entitlements */,
+				4B439AA62C86BF9000415A36 /* CopyPalApp.swift */,
+				4B439AA72C86BF9000415A36 /* CopyPalCommands.swift */,
+			);
+			path = CopyPal;
+			sourceTree = "<group>";
+		};
+		4B439AB22C86BF9500415A36 /* CopyPalTests */ = {
+			isa = PBXGroup;
+			children = (
+				4B439AB12C86BF9500415A36 /* CopyPalTests.swift */,
+			);
+			path = CopyPalTests;
+			sourceTree = "<group>";
+		};
+		4B439AB62C86BF9900415A36 /* CopyPalUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4B439AB42C86BF9900415A36 /* CopyPalUITests.swift */,
+				4B439AB52C86BF9900415A36 /* CopyPalUITestsLaunchTests.swift */,
+			);
+			path = CopyPalUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,9 +171,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				4B3595C92C83FA17006613E9 /* CopyPal */,
 			);
 			name = CopyPal;
 			packageProductDependencies = (
@@ -118,9 +192,6 @@
 			dependencies = (
 				4B3595DC2C83FA1A006613E9 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				4B3595DD2C83FA1A006613E9 /* CopyPalTests */,
-			);
 			name = CopyPalTests;
 			packageProductDependencies = (
 			);
@@ -140,9 +211,6 @@
 			);
 			dependencies = (
 				4B3595E62C83FA1A006613E9 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				4B3595E72C83FA1A006613E9 /* CopyPalUITests */,
 			);
 			name = CopyPalUITests;
 			packageProductDependencies = (
@@ -175,7 +243,7 @@
 				};
 			};
 			buildConfigurationList = 4B3595C22C83FA17006613E9 /* Build configuration list for PBXProject "CopyPal" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -202,6 +270,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B439AA92C86BF9000415A36 /* Preview Assets.xcassets in Resources */,
+				4B439AAA2C86BF9000415A36 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +296,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B439AAB2C86BF9000415A36 /* StringItem.swift in Sources */,
+				4B439AAC2C86BF9000415A36 /* ClipboardWatcher.swift in Sources */,
+				4B439AAD2C86BF9000415A36 /* QueryHelpers.swift in Sources */,
+				4B439AAE2C86BF9000415A36 /* ContentView.swift in Sources */,
+				4B439AAF2C86BF9000415A36 /* CopyPalApp.swift in Sources */,
+				4B439AB02C86BF9000415A36 /* CopyPalCommands.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B439AB32C86BF9500415A36 /* CopyPalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +317,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B439AB72C86BF9900415A36 /* CopyPalUITests.swift in Sources */,
+				4B439AB82C86BF9900415A36 /* CopyPalUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
