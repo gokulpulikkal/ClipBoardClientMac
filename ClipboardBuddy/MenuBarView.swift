@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MenuBarView.swift
 //  CopyPal
 //
 //  Created by Gokul P on 31/08/24.
@@ -8,7 +8,7 @@
 import SwiftData
 import SwiftUI
 
-struct ContentView: View {
+struct MenuBarView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(StringItem.sortedByDate()) private var items: [StringItem]
 
@@ -22,7 +22,9 @@ struct ContentView: View {
                             Image(systemName: "info.circle")
                         }
                         Button(action: {
+                            #if os(macOS)
                             NSApplication.shared.terminate(nil)
+                            #endif
                         }) {
                             Label("Quit", systemImage: "trash")
                         }
@@ -83,8 +85,10 @@ struct ContentView: View {
 
     private func addItemToPastBoard(item: StringItem) {
         ClipboardWatcher.shared.inAppPastingInProgress = true
+        #if os(macOS)
         NSPasteboard.general.prepareForNewContents()
         _ = NSPasteboard.general.setString(item.value, forType: .string)
+        #endif
     }
 
     private func deleteItems(offsets: IndexSet) {
@@ -113,6 +117,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    MenuBarView()
         .modelContainer(for: StringItem.self, inMemory: true)
 }

@@ -28,7 +28,7 @@ final class ClipboardWatcher {
         } // Prevent starting multiple timers
 
         self.modelContext = modelContext
-
+        #if os(macOS)
         var changeCount = NSPasteboard.general.changeCount
 
         isWatching = true
@@ -46,6 +46,7 @@ final class ClipboardWatcher {
                 await self.addCopiedStringToModel(copiedString)
             }
         }
+        #endif
     }
 
     func stopWatching() {

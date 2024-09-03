@@ -1,13 +1,13 @@
 //
-//  CopyPalUITestsLaunchTests.swift
-//  CopyPalUITests
+//  ClipboardBuddyUITestsLaunchTests.swift
+//  ClipboardBuddyUITests
 //
-//  Created by Gokul P on 31/08/24.
+//  Created by Gokul P on 03/09/24.
 //
 
 import XCTest
 
-final class CopyPalUITestsLaunchTests: XCTestCase {
+final class ClipboardBuddyUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
