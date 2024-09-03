@@ -45,4 +45,5 @@ struct LaunchView: View {
 
 #Preview {
     LaunchView()
+        .modelContainer(previewContainer)
 }
