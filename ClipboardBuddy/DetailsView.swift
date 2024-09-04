@@ -22,6 +22,7 @@ struct DetailsView: View {
                 .multilineTextAlignment(.leading)
                 .padding()
         }
+        #if os(iOS)
         .toolbar(content: {
             ToolbarItem(placement: .topBarTrailing, content: {
                 HStack {
@@ -39,7 +40,7 @@ struct DetailsView: View {
                 }
             })
         })
-        #if os(iOS)
+
         .alertMessage(isPresented: $showSnackBar, type: .snackbar) {
             HStack {
                 Image(systemName: "checkmark.seal")
