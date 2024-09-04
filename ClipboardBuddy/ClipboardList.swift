@@ -5,7 +5,7 @@
 //  Created by Gokul P on 03/09/24.
 //
 
-//import AlertMessage
+// import AlertMessage
 import SwiftData
 import SwiftUI
 
@@ -69,22 +69,24 @@ struct ClipboardList: View {
             }
         }
         .tint(.primary)
-        .alertMessage(isPresented: $showSnackBar, type: .snackbar) {
-            HStack {
-                Image(systemName: "checkmark.seal")
-                    .resizable()
-                    .frame(width: 35, height: 35)
-                    .foregroundColor(.white)
-                    .padding()
+        #if os(iOS)
+            .alertMessage(isPresented: $showSnackBar, type: .snackbar) {
+                HStack {
+                    Image(systemName: "checkmark.seal")
+                        .resizable()
+                        .frame(width: 35, height: 35)
+                        .foregroundColor(.white)
+                        .padding()
 
-                Text("Copied successfully!")
-                    .foregroundColor(.white)
+                    Text("Copied successfully!")
+                        .foregroundColor(.white)
 
-                Spacer()
+                    Spacer()
+                }
+                .frame(width: 435, height: 65)
+                .background(RoundedRectangle(cornerRadius: 10).fill(.green))
             }
-            .frame(width: 435, height: 65)
-            .background(RoundedRectangle(cornerRadius: 10).fill(.green))
-        }
+        #endif
     }
 
     private func deleteItems(offsets: IndexSet) {

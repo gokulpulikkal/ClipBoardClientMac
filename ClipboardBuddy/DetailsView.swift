@@ -5,7 +5,7 @@
 //  Created by Gokul P on 03/09/24.
 //
 
-//import AlertMessage
+// import AlertMessage
 import SwiftUI
 
 struct DetailsView: View {
@@ -39,6 +39,7 @@ struct DetailsView: View {
                 }
             })
         })
+        #if os(iOS)
         .alertMessage(isPresented: $showSnackBar, type: .snackbar) {
             HStack {
                 Image(systemName: "checkmark.seal")
@@ -55,6 +56,7 @@ struct DetailsView: View {
             .frame(width: 435, height: 65)
             .background(RoundedRectangle(cornerRadius: 10).fill(.green))
         }
+        #endif
     }
 
     private func addItemToPastBoard(item: StringItem) {
