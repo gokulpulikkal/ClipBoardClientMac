@@ -5,7 +5,7 @@
 //  Created by Gokul P on 03/09/24.
 //
 
-import AlertMessage
+//import AlertMessage
 import SwiftUI
 
 struct DetailsView: View {
