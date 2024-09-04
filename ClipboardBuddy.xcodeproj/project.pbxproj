@@ -22,6 +22,8 @@
 		4B7346F12C878404008C81E5 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7346EC2C878404008C81E5 /* LaunchView.swift */; };
 		4B7346F22C878404008C81E5 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7346ED2C878404008C81E5 /* MenuBarView.swift */; };
 		4B7346F32C878404008C81E5 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7346EB2C878404008C81E5 /* HomeScreen.swift */; };
+		4B7346F72C880D6F008C81E5 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7346F62C880D6F008C81E5 /* DetailsView.swift */; };
+		4B7346FE2C881AA5008C81E5 /* AlertMessage in Frameworks */ = {isa = PBXBuildFile; productRef = 4B7346FD2C881AA5008C81E5 /* AlertMessage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,7 @@
 		4B7346EC2C878404008C81E5 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		4B7346ED2C878404008C81E5 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		4B7346EE2C878404008C81E5 /* ScreenTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTypes.swift; sourceTree = "<group>"; };
+		4B7346F62C880D6F008C81E5 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B7346FE2C881AA5008C81E5 /* AlertMessage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +99,7 @@
 				4B7346C12C878355008C81E5 /* ClipboardBuddy */,
 				4B7346C92C87835B008C81E5 /* ClipboardBuddyTests */,
 				4B7346CD2C87835E008C81E5 /* ClipboardBuddyUITests */,
+				4B7346FC2C881AA5008C81E5 /* Frameworks */,
 				4B7346882C8782E9008C81E5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 				4B7346BC2C878355008C81E5 /* ClipboardBuddy.entitlements */,
 				4B7346BD2C878355008C81E5 /* ClipboardBuddyApp.swift */,
 				4B7346BF2C878355008C81E5 /* Info.plist */,
+				4B7346F62C880D6F008C81E5 /* DetailsView.swift */,
 			);
 			path = ClipboardBuddy;
 			sourceTree = "<group>";
@@ -171,6 +177,13 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		4B7346FC2C881AA5008C81E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -188,6 +201,7 @@
 			);
 			name = ClipboardBuddy;
 			packageProductDependencies = (
+				4B7346FD2C881AA5008C81E5 /* AlertMessage */,
 			);
 			productName = ClipboardBuddy;
 			productReference = 4B7346872C8782E9008C81E5 /* ClipboardBuddy.app */;
@@ -266,6 +280,9 @@
 			);
 			mainGroup = 4B73467E2C8782E9008C81E5;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				4B7346FA2C8819AD008C81E5 /* XCRemoteSwiftPackageReference "AlertMessage" */,
+			);
 			productRefGroup = 4B7346882C8782E9008C81E5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -314,6 +331,7 @@
 				4B7346F12C878404008C81E5 /* LaunchView.swift in Sources */,
 				4B7346F22C878404008C81E5 /* MenuBarView.swift in Sources */,
 				4B7346F32C878404008C81E5 /* HomeScreen.swift in Sources */,
+				4B7346F72C880D6F008C81E5 /* DetailsView.swift in Sources */,
 				4B7346E62C878398008C81E5 /* QueryHelpers.swift in Sources */,
 				4B7346E72C878398008C81E5 /* ClipboardWatcher.swift in Sources */,
 				4B7346E82C878398008C81E5 /* StringItem.swift in Sources */,
@@ -680,6 +698,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4B7346FA2C8819AD008C81E5 /* XCRemoteSwiftPackageReference "AlertMessage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielkmarks23/AlertMessage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4B7346FD2C881AA5008C81E5 /* AlertMessage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B7346FA2C8819AD008C81E5 /* XCRemoteSwiftPackageReference "AlertMessage" */;
+			productName = AlertMessage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4B73467F2C8782E9008C81E5 /* Project object */;
 }

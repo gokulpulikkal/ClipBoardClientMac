@@ -40,7 +40,7 @@ struct HomeScreen: View {
                 case .Clipboard:
                     ClipboardList()
                 default:
-                    Text("helloWorld")
+                    Text("Coming Sooon!")
                 }
             }
         })
