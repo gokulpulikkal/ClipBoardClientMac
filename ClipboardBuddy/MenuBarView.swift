@@ -11,59 +11,71 @@ import SwiftUI
 struct MenuBarView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(StringItem.sortedByDate()) private var items: [StringItem]
+    @State var selection: Int?
 
     var body: some View {
         NavigationStack {
-            VStack {
-                List {
-                    HStack {
-                        Spacer()
-                        Button(action: {}) {
-                            Image(systemName: "info.circle")
-                        }
-                        Button(action: {
-                            #if os(macOS)
-                            NSApplication.shared.terminate(nil)
-                            #endif
-                        }) {
-                            Label("Quit", systemImage: "trash")
-                        }
-                        if !items.isEmpty {
-                            Button(action: deleteAllItems) {
-                                Label("Clear All History", systemImage: "trash")
-                            }
+            VStack(spacing: 0) {
+                HStack {
+                    Spacer()
+                    SettingsLink {
+                        Image(systemName: "gear")
+                    }
+                    Button(action: {
+                        #if os(macOS)
+                        NSApplication.shared.terminate(nil)
+                        #endif
+                    }) {
+                        Label("Quit", systemImage: "trash")
+                    }
+                    if !items.isEmpty {
+                        Button(action: deleteAllItems) {
+                            Label("Clear All History", systemImage: "trash")
                         }
                     }
-                    .padding(.bottom, 5)
-                    .listRowSeparator(.hidden)
-                    if !items.isEmpty {
-                        ForEach(items) { item in
-                            NavigationLink {
-                                Text(item.value)
-                                    .padding()
-                            } label: {
-                                HStack {
-                                    Text(item.value)
-                                        .lineLimit(2)
-                                        .help(Text(item.value))
-                                    Spacer()
-                                    HStack {
-                                        Button(action: {
-                                            addItemToPastBoard(item: item)
-                                        }, label: {
-                                            Image(systemName: "document.on.document")
-                                        })
+                }
+                .padding([.top, .trailing], 15)
 
-                                        Button(action: {
-                                            deleteItem(item: item)
-                                        }, label: {
-                                            Image(systemName: "trash")
-                                        })
-                                    }
+                List(selection: $selection) {
+                    if !items.isEmpty {
+                        ForEach(items.indices, id: \.self) { index in
+                            HStack {
+                                Text(items[index].value)
+                                    .lineLimit(2)
+                                    .help(Text(items[index].value))
+                                Spacer()
+                                HStack {
+                                    Button(action: {
+                                        addItemToPastBoard(item: items[index])
+                                    }, label: {
+                                        Image(systemName: "document.on.document")
+                                    })
+
+                                    Button(action: {
+                                        deleteItem(item: items[index])
+                                    }, label: {
+                                        Image(systemName: "trash")
+                                    })
                                 }
                             }
                         }
                         .onDelete(perform: deleteItems)
+                        .onAppear {
+                            NSEvent.addLocalMonitorForEvents(matching: [.keyDown]) { nsevent in
+                                if selection != nil {
+                                    if nsevent.keyCode == 125 { // arrow down
+                                        selection = selection! < items.count ? selection! + 1 : 0
+                                    } else {
+                                        if nsevent.keyCode == 126 { // arrow up
+                                            selection = selection! > 1 ? selection! - 1 : 0
+                                        }
+                                    }
+                                } else {
+                                    selection = 0
+                                }
+                                return nsevent
+                            }
+                        }
                     }
                 }
                 .padding(.vertical)

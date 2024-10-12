@@ -33,6 +33,11 @@ struct ClipboardBuddyApp: App {
                 })
         })
         .menuBarExtraStyle(.window)
+        
+        Settings {
+            Text("This is settings view!!")
+        }
+        
         #else
         // Handle all other cases
         WindowGroup {
