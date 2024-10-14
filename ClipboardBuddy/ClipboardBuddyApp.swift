@@ -35,8 +35,9 @@ struct ClipboardBuddyApp: App {
         .menuBarExtraStyle(.window)
         
         Settings {
-            Text("This is settings view!!")
+            SettingsView()
         }
+        
         
         #else
         // Handle all other cases

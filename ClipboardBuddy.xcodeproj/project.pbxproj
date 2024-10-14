@@ -24,6 +24,7 @@
 		4B7346F32C878404008C81E5 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7346EB2C878404008C81E5 /* HomeScreen.swift */; };
 		4B7346F72C880D6F008C81E5 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7346F62C880D6F008C81E5 /* DetailsView.swift */; };
 		4B7347002C88213C008C81E5 /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7346FF2C88213C008C81E5 /* AlertMessage.swift */; };
+		4BA6F5E02CBB29FD00031B51 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6F5DF2CBB29FD00031B51 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		4B7346EE2C878404008C81E5 /* ScreenTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTypes.swift; sourceTree = "<group>"; };
 		4B7346F62C880D6F008C81E5 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		4B7346FF2C88213C008C81E5 /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
+		4BA6F5DF2CBB29FD00031B51 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,20 +127,16 @@
 		4B7346C12C878355008C81E5 /* ClipboardBuddy */ = {
 			isa = PBXGroup;
 			children = (
-				4B7346FF2C88213C008C81E5 /* AlertMessage.swift */,
-				4B7346EA2C878404008C81E5 /* ClipboardList.swift */,
-				4B7346EB2C878404008C81E5 /* HomeScreen.swift */,
-				4B7346EC2C878404008C81E5 /* LaunchView.swift */,
-				4B7346ED2C878404008C81E5 /* MenuBarView.swift */,
-				4B7346EE2C878404008C81E5 /* ScreenTypes.swift */,
+				4BA6F5DE2CBB298F00031B51 /* Views */,
 				4B7346DF2C878398008C81E5 /* Model */,
+				4B7346FF2C88213C008C81E5 /* AlertMessage.swift */,
+				4B7346EE2C878404008C81E5 /* ScreenTypes.swift */,
 				4B7346E42C878398008C81E5 /* Utilities */,
 				4B7346BA2C878355008C81E5 /* Preview Content */,
 				4B7346BB2C878355008C81E5 /* Assets.xcassets */,
 				4B7346BC2C878355008C81E5 /* ClipboardBuddy.entitlements */,
 				4B7346BD2C878355008C81E5 /* ClipboardBuddyApp.swift */,
 				4B7346BF2C878355008C81E5 /* Info.plist */,
-				4B7346F62C880D6F008C81E5 /* DetailsView.swift */,
 			);
 			path = ClipboardBuddy;
 			sourceTree = "<group>";
@@ -183,6 +181,27 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4BA6F5DE2CBB298F00031B51 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4B7346F62C880D6F008C81E5 /* DetailsView.swift */,
+				4B7346EA2C878404008C81E5 /* ClipboardList.swift */,
+				4B7346EC2C878404008C81E5 /* LaunchView.swift */,
+				4B7346EB2C878404008C81E5 /* HomeScreen.swift */,
+				4B7346ED2C878404008C81E5 /* MenuBarView.swift */,
+				4BA6F5E12CBB2A2E00031B51 /* SettingsScreen */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4BA6F5E12CBB2A2E00031B51 /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4BA6F5DF2CBB29FD00031B51 /* SettingsView.swift */,
+			);
+			path = SettingsScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,6 +355,7 @@
 				4B7346E82C878398008C81E5 /* StringItem.swift in Sources */,
 				4B7347002C88213C008C81E5 /* AlertMessage.swift in Sources */,
 				4B7346E92C878398008C81E5 /* PreviewData.swift in Sources */,
+				4BA6F5E02CBB29FD00031B51 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
