@@ -39,8 +39,10 @@ struct HomeScreen: View {
                 switch selectedTab {
                 case .Clipboard:
                     ClipboardList()
-                default:
-                    Text("Coming Sooon!")
+                case .Settings:
+                    SettingsFormView()
+                case .Info:
+                    VersionInfoView()
                 }
             }
         })

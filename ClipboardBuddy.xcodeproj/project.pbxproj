@@ -24,7 +24,10 @@
 		4B7346F32C878404008C81E5 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7346EB2C878404008C81E5 /* HomeScreen.swift */; };
 		4B7346F72C880D6F008C81E5 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7346F62C880D6F008C81E5 /* DetailsView.swift */; };
 		4B7347002C88213C008C81E5 /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7346FF2C88213C008C81E5 /* AlertMessage.swift */; };
-		4BA6F5E02CBB29FD00031B51 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6F5DF2CBB29FD00031B51 /* SettingsView.swift */; };
+		4BA6F5E02CBB29FD00031B51 /* SettingsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6F5DF2CBB29FD00031B51 /* SettingsTabView.swift */; };
+		4BA6F5E32CBCC3A200031B51 /* DynamicQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6F5E22CBCC3A200031B51 /* DynamicQuery.swift */; };
+		4BA6F5E52CBCC5A900031B51 /* SettingsFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6F5E42CBCC5A900031B51 /* SettingsFormView.swift */; };
+		4BA6F5E72CBCC5E900031B51 /* VersionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6F5E62CBCC5E900031B51 /* VersionInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +70,10 @@
 		4B7346EE2C878404008C81E5 /* ScreenTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTypes.swift; sourceTree = "<group>"; };
 		4B7346F62C880D6F008C81E5 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		4B7346FF2C88213C008C81E5 /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
-		4BA6F5DF2CBB29FD00031B51 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		4BA6F5DF2CBB29FD00031B51 /* SettingsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabView.swift; sourceTree = "<group>"; };
+		4BA6F5E22CBCC3A200031B51 /* DynamicQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicQuery.swift; sourceTree = "<group>"; };
+		4BA6F5E42CBCC5A900031B51 /* SettingsFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormView.swift; sourceTree = "<group>"; };
+		4BA6F5E62CBCC5E900031B51 /* VersionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +178,7 @@
 			children = (
 				4B7346E22C878398008C81E5 /* ClipboardWatcher.swift */,
 				4B7346E32C878398008C81E5 /* QueryHelpers.swift */,
+				4BA6F5E22CBCC3A200031B51 /* DynamicQuery.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -199,7 +206,9 @@
 		4BA6F5E12CBB2A2E00031B51 /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				4BA6F5DF2CBB29FD00031B51 /* SettingsView.swift */,
+				4BA6F5DF2CBB29FD00031B51 /* SettingsTabView.swift */,
+				4BA6F5E42CBCC5A900031B51 /* SettingsFormView.swift */,
+				4BA6F5E62CBCC5E900031B51 /* VersionInfoView.swift */,
 			);
 			path = SettingsScreen;
 			sourceTree = "<group>";
@@ -345,8 +354,10 @@
 			files = (
 				4B7346C52C878355008C81E5 /* ClipboardBuddyApp.swift in Sources */,
 				4B7346EF2C878404008C81E5 /* ScreenTypes.swift in Sources */,
+				4BA6F5E52CBCC5A900031B51 /* SettingsFormView.swift in Sources */,
 				4B7346F02C878404008C81E5 /* ClipboardList.swift in Sources */,
 				4B7346F12C878404008C81E5 /* LaunchView.swift in Sources */,
+				4BA6F5E32CBCC3A200031B51 /* DynamicQuery.swift in Sources */,
 				4B7346F22C878404008C81E5 /* MenuBarView.swift in Sources */,
 				4B7346F32C878404008C81E5 /* HomeScreen.swift in Sources */,
 				4B7346F72C880D6F008C81E5 /* DetailsView.swift in Sources */,
@@ -354,8 +365,9 @@
 				4B7346E72C878398008C81E5 /* ClipboardWatcher.swift in Sources */,
 				4B7346E82C878398008C81E5 /* StringItem.swift in Sources */,
 				4B7347002C88213C008C81E5 /* AlertMessage.swift in Sources */,
+				4BA6F5E72CBCC5E900031B51 /* VersionInfoView.swift in Sources */,
 				4B7346E92C878398008C81E5 /* PreviewData.swift in Sources */,
-				4BA6F5E02CBB29FD00031B51 /* SettingsView.swift in Sources */,
+				4BA6F5E02CBB29FD00031B51 /* SettingsTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

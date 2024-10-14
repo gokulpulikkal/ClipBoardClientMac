@@ -35,7 +35,7 @@ struct ClipboardBuddyApp: App {
         .menuBarExtraStyle(.window)
         
         Settings {
-            SettingsView()
+            SettingsTabView()
         }
         
         

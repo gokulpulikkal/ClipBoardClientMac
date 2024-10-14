@@ -14,6 +14,14 @@ struct ClipboardList: View {
     @Query(StringItem.sortedByDate()) private var items: [StringItem]
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State var showSnackBar = false
+    @AppStorage("historyLimit") private var limit = 20
+
+    var itemStringFetchDescriptor: FetchDescriptor<StringItem> {
+        var fetch = FetchDescriptor<StringItem>()
+        fetch.fetchLimit = limit
+        fetch.sortBy = [SortDescriptor(\StringItem.timestamp, order: .reverse)]
+        return fetch
+    }
 
     private var columns = [
         GridItem(.adaptive(minimum: 350, maximum: 400), spacing: 15)
@@ -21,51 +29,53 @@ struct ClipboardList: View {
 
     var body: some View {
         NavigationStack {
-            if !items.isEmpty {
-                ScrollView {
-                    LazyVGrid(columns: columns) {
-                        ForEach(items) { item in
-                            NavigationLink(destination: {
-                                DetailsView(stringItem: item)
-                            }, label: {
-                                VStack(alignment: .leading, spacing: 10) {
-                                    Text(item.timestamp.formatted(date: .numeric, time: .standard))
-                                        .font(.footnote)
-                                        .opacity(0.7)
-                                    HStack {
-                                        Text(item.value)
-                                            .lineLimit(2, reservesSpace: true)
-                                            .help(Text(item.value))
-                                        Spacer()
+            DynamicQuery(itemStringFetchDescriptor) { items in
+                if !items.isEmpty {
+                    ScrollView {
+                        LazyVGrid(columns: columns) {
+                            ForEach(items) { item in
+                                NavigationLink(destination: {
+                                    DetailsView(stringItem: item)
+                                }, label: {
+                                    VStack(alignment: .leading, spacing: 10) {
+                                        Text(item.timestamp.formatted(date: .numeric, time: .standard))
+                                            .font(.footnote)
+                                            .opacity(0.7)
                                         HStack {
-                                            Button(action: {
-                                                addItemToPastBoard(item: item)
-                                            }, label: {
-                                                Image(systemName: "document.on.document")
-                                            })
+                                            Text(item.value.trimmingCharacters(in: .whitespacesAndNewlines))
+                                                .lineLimit(2, reservesSpace: true)
+                                                .help(Text(item.value))
+                                            Spacer()
+                                            HStack {
+                                                Button(action: {
+                                                    addItemToPastBoard(item: item)
+                                                }, label: {
+                                                    Image(systemName: "document.on.document")
+                                                })
 
-                                            Button(action: {
-                                                deleteItem(item: item)
-                                            }, label: {
-                                                Image(systemName: "trash")
-                                            })
+                                                Button(action: {
+                                                    deleteItem(item: item)
+                                                }, label: {
+                                                    Image(systemName: "trash")
+                                                })
+                                            }
                                         }
                                     }
-                                }
-                            })
-                            .padding()
-                            .background(RoundedRectangle(cornerRadius: 10).fill(.white.shadow(.drop(
-                                color: .black.opacity(0.3),
-                                radius: 3
-                            ))))
-                            .padding(.vertical, 5)
+                                })
+                                .padding()
+                                .background(RoundedRectangle(cornerRadius: 10).fill(.white.shadow(.drop(
+                                    color: .black.opacity(0.3),
+                                    radius: 3
+                                ))))
+                                .padding(.vertical, 5)
+                            }
                         }
+                        .animation(.spring, value: items)
+                        .padding()
                     }
-                    .animation(.spring, value: items)
-                    .padding()
+                } else {
+                    Text("Clipboard is Empty!!")
                 }
-            } else {
-                Text("Clipboard is Empty!!")
             }
         }
         .tint(.primary)
