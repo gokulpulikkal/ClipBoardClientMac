@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct SettingsFormView: View {
-    @AppStorage("historyLimit") private var limit = 20
+    @AppStorage(UserDefaultsKeys.listItemLimitNumberKey.rawValue) private var limit = 20
     @Query(StringItem.sortedByDate()) private var allItems: [StringItem]
     @Environment(\.modelContext) private var modelContext
     @State var showAlert: Bool = false
@@ -17,10 +17,8 @@ struct SettingsFormView: View {
     var body: some View {
         Form {
             HStack {
-                #if !os(macOS)
                 Text("Limit History to")
                     .bold()
-                #endif
                 TextField("", value: $limit, format: .number)
                     .textFieldStyle(.roundedBorder)
             }

@@ -28,6 +28,7 @@
 		4BA6F5E32CBCC3A200031B51 /* DynamicQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6F5E22CBCC3A200031B51 /* DynamicQuery.swift */; };
 		4BA6F5E52CBCC5A900031B51 /* SettingsFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6F5E42CBCC5A900031B51 /* SettingsFormView.swift */; };
 		4BA6F5E72CBCC5E900031B51 /* VersionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6F5E62CBCC5E900031B51 /* VersionInfoView.swift */; };
+		4BA6F5EA2CBD7AB500031B51 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6F5E92CBD7AB500031B51 /* UserDefaultsKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		4BA6F5E22CBCC3A200031B51 /* DynamicQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicQuery.swift; sourceTree = "<group>"; };
 		4BA6F5E42CBCC5A900031B51 /* SettingsFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormView.swift; sourceTree = "<group>"; };
 		4BA6F5E62CBCC5E900031B51 /* VersionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoView.swift; sourceTree = "<group>"; };
+		4BA6F5E92CBD7AB500031B51 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,10 +135,9 @@
 		4B7346C12C878355008C81E5 /* ClipboardBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				4BA6F5E82CBD7A5200031B51 /* Enums */,
 				4BA6F5DE2CBB298F00031B51 /* Views */,
 				4B7346DF2C878398008C81E5 /* Model */,
-				4B7346FF2C88213C008C81E5 /* AlertMessage.swift */,
-				4B7346EE2C878404008C81E5 /* ScreenTypes.swift */,
 				4B7346E42C878398008C81E5 /* Utilities */,
 				4B7346BA2C878355008C81E5 /* Preview Content */,
 				4B7346BB2C878355008C81E5 /* Assets.xcassets */,
@@ -176,6 +177,7 @@
 		4B7346E42C878398008C81E5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				4B7346FF2C88213C008C81E5 /* AlertMessage.swift */,
 				4B7346E22C878398008C81E5 /* ClipboardWatcher.swift */,
 				4B7346E32C878398008C81E5 /* QueryHelpers.swift */,
 				4BA6F5E22CBCC3A200031B51 /* DynamicQuery.swift */,
@@ -211,6 +213,15 @@
 				4BA6F5E62CBCC5E900031B51 /* VersionInfoView.swift */,
 			);
 			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
+		4BA6F5E82CBD7A5200031B51 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				4B7346EE2C878404008C81E5 /* ScreenTypes.swift */,
+				4BA6F5E92CBD7AB500031B51 /* UserDefaultsKeys.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +367,7 @@
 				4B7346EF2C878404008C81E5 /* ScreenTypes.swift in Sources */,
 				4BA6F5E52CBCC5A900031B51 /* SettingsFormView.swift in Sources */,
 				4B7346F02C878404008C81E5 /* ClipboardList.swift in Sources */,
+				4BA6F5EA2CBD7AB500031B51 /* UserDefaultsKeys.swift in Sources */,
 				4B7346F12C878404008C81E5 /* LaunchView.swift in Sources */,
 				4BA6F5E32CBCC3A200031B51 /* DynamicQuery.swift in Sources */,
 				4B7346F22C878404008C81E5 /* MenuBarView.swift in Sources */,

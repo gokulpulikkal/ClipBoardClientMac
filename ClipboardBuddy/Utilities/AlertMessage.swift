@@ -148,7 +148,7 @@ public struct AlertMessage<AlertMessageContent: View>: ViewModifier {
             .onAppear {
                 appearAction(sheetPresented: isPresented)
             }
-            .onChange(of: isPresented, perform: { newValue in
+            .onChange(of: isPresented, { oldValue, newValue in
                 appearAction(sheetPresented: newValue)
             })
     }

@@ -14,7 +14,7 @@ struct ClipboardList: View {
     @Query(StringItem.sortedByDate()) private var items: [StringItem]
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State var showSnackBar = false
-    @AppStorage("historyLimit") private var limit = 20
+    @AppStorage(UserDefaultsKeys.listItemLimitNumberKey.rawValue) private var limit = 20
 
     var itemStringFetchDescriptor: FetchDescriptor<StringItem> {
         var fetch = FetchDescriptor<StringItem>()
@@ -93,8 +93,9 @@ struct ClipboardList: View {
 
                     Spacer()
                 }
-                .frame(width: 435, height: 65)
+                .frame(width: 335, height: 65)
                 .background(RoundedRectangle(cornerRadius: 10).fill(.green))
+                .padding()
             }
         #endif
     }

@@ -12,7 +12,7 @@ struct MenuBarView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(StringItem.sortedByDate()) private var allItems: [StringItem]
     @State var selection: Int?
-    @AppStorage("historyLimit") private var limit = 20
+    @AppStorage(UserDefaultsKeys.listItemLimitNumberKey.rawValue) private var limit = 20
 
     var itemStringFetchDescriptor: FetchDescriptor<StringItem> {
         var fetch = FetchDescriptor<StringItem>()

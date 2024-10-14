@@ -36,6 +36,7 @@ struct ClipboardBuddyApp: App {
         
         Settings {
             SettingsTabView()
+                .modelContainer(sharedModelContainer)
         }
         
         
