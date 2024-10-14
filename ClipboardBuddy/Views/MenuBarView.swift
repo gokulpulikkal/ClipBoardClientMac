@@ -27,9 +27,11 @@ struct MenuBarView: View {
                 VStack(spacing: 0) {
                     HStack {
                         Spacer()
+                        #if os(macOS)
                         SettingsLink {
                             Image(systemName: "gear")
                         }
+                        #endif
                         Button(action: {
                             #if os(macOS)
                             NSApplication.shared.terminate(nil)
@@ -49,7 +51,7 @@ struct MenuBarView: View {
                         if !items.isEmpty {
                             ForEach(items.indices, id: \.self) { index in
                                 HStack {
-                                    Text(items[index].value)
+                                    Text(items[index].value.trimmingCharacters(in: .whitespacesAndNewlines))
                                         .lineLimit(2)
                                         .help(Text(items[index].value))
                                     Spacer()
@@ -76,20 +78,26 @@ struct MenuBarView: View {
                                 }
                             })
                             .onAppear {
+                                #if os(macOS)
                                 NSEvent.addLocalMonitorForEvents(matching: [.keyDown]) { nsevent in
                                     if selection != nil {
-                                        if nsevent.keyCode == 125 { // arrow down
+                                        switch nsevent.keyCode {
+                                        case 125: // arrow down
                                             selection = selection! < items.count ? selection! + 1 : 0
-                                        } else {
-                                            if nsevent.keyCode == 126 { // arrow up
-                                                selection = selection! > 1 ? selection! - 1 : 0
-                                            }
+                                        case 126: // arrow up
+                                            selection = selection! > 1 ? selection! - 1 : 0
+                                        case 36: // Enter key
+                                            // Handle the enter key press (perform the action you want here)
+                                            addItemToPastBoard(item: items[selection ?? 0])
+                                        default:
+                                            break
                                         }
                                     } else {
                                         selection = 0
                                     }
                                     return nsevent
                                 }
+                                #endif
                             }
                         }
                     }
@@ -144,15 +152,15 @@ struct MenuBarView: View {
 struct DynamicQuery<Element: PersistentModel, Content: View>: View {
     let descriptor: FetchDescriptor<Element>
     let content: ([Element]) -> Content
-    
+
     @Query var items: [Element]
-    
+
     init(_ descriptor: FetchDescriptor<Element>, @ViewBuilder content: @escaping ([Element]) -> Content) {
         self.descriptor = descriptor
         self.content = content
         _items = Query(descriptor)
     }
-    
+
     var body: some View {
         content(items)
     }
