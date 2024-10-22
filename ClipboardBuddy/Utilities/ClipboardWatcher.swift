@@ -18,6 +18,8 @@ final class ClipboardWatcher {
     private var timer: Timer?
     private var isWatching = false
     var inAppPastingInProgress = false
+    
+    var lastCopiedItem: StringItem?
 
     /// Inject the ModelContainer
     var modelContext: ModelContext?
@@ -33,7 +35,7 @@ final class ClipboardWatcher {
         var changeCount = NSPasteboard.general.changeCount
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             guard let copiedString = NSPasteboard.general.string(forType: .string),
-                  NSPasteboard.general.changeCount != changeCount
+                  NSPasteboard.general.changeCount != changeCount, self.lastCopiedItem?.value != copiedString
             else {
                 return
             }
@@ -49,7 +51,7 @@ final class ClipboardWatcher {
         var changeCount = UIPasteboard.general.changeCount
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             guard let copiedString = UIPasteboard.general.string,
-                  UIPasteboard.general.changeCount != changeCount
+                  UIPasteboard.general.changeCount != changeCount, self.lastCopiedItem?.value != copiedString
             else {
                 return
             }
@@ -79,7 +81,7 @@ final class ClipboardWatcher {
 
         let newClip = StringItem(timestamp: Date(), value: copiedString)
         context.insert(newClip)
-
+        lastCopiedItem = newClip
         do {
             try context.save()
         } catch {

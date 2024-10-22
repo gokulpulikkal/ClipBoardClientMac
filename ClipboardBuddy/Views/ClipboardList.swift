@@ -44,6 +44,7 @@ struct ClipboardList: View {
                                         HStack {
                                             Text(item.value.trimmingCharacters(in: .whitespacesAndNewlines))
                                                 .lineLimit(2, reservesSpace: true)
+                                                .multilineTextAlignment(.leading)
                                                 .help(Text(item.value))
                                             Spacer()
                                             HStack {

@@ -53,6 +53,7 @@ struct MenuBarView: View {
                                 HStack {
                                     Text(items[index].value.trimmingCharacters(in: .whitespacesAndNewlines))
                                         .lineLimit(2)
+                                        .multilineTextAlignment(.leading)
                                         .help(Text(items[index].value))
                                     Spacer()
                                     HStack {
