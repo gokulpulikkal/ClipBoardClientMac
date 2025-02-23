@@ -12,7 +12,8 @@ import SwiftUI
 struct ClipboardBuddyApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            StringItem.self
+            StringItem.self,
+            PasteboardItem.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -23,23 +24,25 @@ struct ClipboardBuddyApp: App {
         }
     }()
 
+    let clipboardChangeListener: ClipboardChangeListenerUseCase
+
+    init() {
+        self.clipboardChangeListener = ClipboardChangeListenerUseCase(modelContext: sharedModelContainer.mainContext)
+    }
+
     var body: some Scene {
         #if os(macOS)
         MenuBarExtra("ClipBoard", systemImage: "list.clipboard", content: {
             MenuBarView()
                 .modelContainer(sharedModelContainer)
-                .onAppear(perform: {
-                    ClipboardWatcher.shared.startWatching(using: sharedModelContainer.mainContext)
-                })
         })
         .menuBarExtraStyle(.window)
-        
+
         Settings {
             SettingsTabView()
                 .modelContainer(sharedModelContainer)
         }
-        
-        
+
         #else
         // Handle all other cases
         WindowGroup {

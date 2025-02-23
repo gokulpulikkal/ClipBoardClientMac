@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,6 +29,7 @@
 		4BA6F5E52CBCC5A900031B51 /* SettingsFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6F5E42CBCC5A900031B51 /* SettingsFormView.swift */; };
 		4BA6F5E72CBCC5E900031B51 /* VersionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6F5E62CBCC5E900031B51 /* VersionInfoView.swift */; };
 		4BA6F5EA2CBD7AB500031B51 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6F5E92CBD7AB500031B51 /* UserDefaultsKeys.swift */; };
+		4BC52C1B2D6831220099D2EC /* PasteboardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC52C1A2D6831220099D2EC /* PasteboardItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +77,13 @@
 		4BA6F5E42CBCC5A900031B51 /* SettingsFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFormView.swift; sourceTree = "<group>"; };
 		4BA6F5E62CBCC5E900031B51 /* VersionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionInfoView.swift; sourceTree = "<group>"; };
 		4BA6F5E92CBD7AB500031B51 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		4BC52C1A2D6831220099D2EC /* PasteboardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4BC52ABC2D67BE1B0099D2EC /* ClipboardManager */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ClipboardManager; sourceTree = "<group>"; };
+		4BC52C1C2D6837DB0099D2EC /* ClipboardManager */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ClipboardManager; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4B7346842C8782E9008C81E5 /* Frameworks */ = {
@@ -135,6 +142,7 @@
 		4B7346C12C878355008C81E5 /* ClipboardBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				4BC52ABC2D67BE1B0099D2EC /* ClipboardManager */,
 				4BA6F5E82CBD7A5200031B51 /* Enums */,
 				4BA6F5DE2CBB298F00031B51 /* Views */,
 				4B7346DF2C878398008C81E5 /* Model */,
@@ -151,6 +159,7 @@
 		4B7346C92C87835B008C81E5 /* ClipboardBuddyTests */ = {
 			isa = PBXGroup;
 			children = (
+				4BC52C1C2D6837DB0099D2EC /* ClipboardManager */,
 				4B7346C82C87835B008C81E5 /* ClipboardBuddyTests.swift */,
 			);
 			path = ClipboardBuddyTests;
@@ -170,6 +179,7 @@
 			children = (
 				4B7346DD2C878398008C81E5 /* PreviewData.swift */,
 				4B7346DE2C878398008C81E5 /* StringItem.swift */,
+				4BC52C1A2D6831220099D2EC /* PasteboardItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,6 +249,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				4BC52ABC2D67BE1B0099D2EC /* ClipboardManager */,
+			);
 			name = ClipboardBuddy;
 			packageProductDependencies = (
 			);
@@ -258,6 +271,9 @@
 			);
 			dependencies = (
 				4B73469D2C8782EC008C81E5 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4BC52C1C2D6837DB0099D2EC /* ClipboardManager */,
 			);
 			name = ClipboardBuddyTests;
 			packageProductDependencies = (
@@ -294,7 +310,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
-				LastUpgradeCheck = 1600;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					4B7346862C8782E9008C81E5 = {
 						CreatedOnToolsVersion = 16.0;
@@ -369,6 +385,7 @@
 				4B7346F02C878404008C81E5 /* ClipboardList.swift in Sources */,
 				4BA6F5EA2CBD7AB500031B51 /* UserDefaultsKeys.swift in Sources */,
 				4B7346F12C878404008C81E5 /* LaunchView.swift in Sources */,
+				4BC52C1B2D6831220099D2EC /* PasteboardItem.swift in Sources */,
 				4BA6F5E32CBCC3A200031B51 /* DynamicQuery.swift in Sources */,
 				4B7346F22C878404008C81E5 /* MenuBarView.swift in Sources */,
 				4B7346F32C878404008C81E5 /* HomeScreen.swift in Sources */,
@@ -424,6 +441,7 @@
 				CODE_SIGN_ENTITLEMENTS = ClipboardBuddy/ClipboardBuddy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"ClipboardBuddy/Preview Content\"";
 				DEVELOPMENT_TEAM = 473BWG9258;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -452,7 +470,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -466,6 +484,7 @@
 				CODE_SIGN_ENTITLEMENTS = ClipboardBuddy/ClipboardBuddy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"ClipboardBuddy/Preview Content\"";
 				DEVELOPMENT_TEAM = 473BWG9258;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -494,7 +513,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -534,6 +553,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -595,6 +615,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -620,6 +641,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 473BWG9258;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
@@ -630,7 +652,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClipboardBuddy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ClipboardBuddy";
 				XROS_DEPLOYMENT_TARGET = 2.0;
@@ -643,6 +665,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 473BWG9258;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
@@ -653,7 +676,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClipboardBuddy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ClipboardBuddy";
 				XROS_DEPLOYMENT_TARGET = 2.0;
@@ -665,6 +688,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 473BWG9258;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
@@ -687,6 +711,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 473BWG9258;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;

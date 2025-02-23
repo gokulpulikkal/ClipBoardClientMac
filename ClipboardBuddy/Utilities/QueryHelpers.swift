@@ -15,3 +15,12 @@ extension StringItem {
         return fetch
     }
 }
+
+
+extension PasteboardItem {
+    static func sortedByDate() -> FetchDescriptor<PasteboardItem> {
+        var fetch = FetchDescriptor<PasteboardItem>()
+        fetch.sortBy = [SortDescriptor(\PasteboardItem.timestamp, order: .reverse)]
+        return fetch
+    }
+}

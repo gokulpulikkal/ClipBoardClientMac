@@ -10,14 +10,14 @@ import SwiftUI
 
 struct MenuBarView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(StringItem.sortedByDate()) private var allItems: [StringItem]
+    @Query(PasteboardItem.sortedByDate()) private var allItems: [PasteboardItem]
     @State var selection: Int?
     @AppStorage(UserDefaultsKeys.listItemLimitNumberKey.rawValue) private var limit = 20
 
-    var itemStringFetchDescriptor: FetchDescriptor<StringItem> {
-        var fetch = FetchDescriptor<StringItem>()
+    var itemStringFetchDescriptor: FetchDescriptor<PasteboardItem> {
+        var fetch = FetchDescriptor<PasteboardItem>()
         fetch.fetchLimit = limit
-        fetch.sortBy = [SortDescriptor(\StringItem.timestamp, order: .reverse)]
+        fetch.sortBy = [SortDescriptor(\PasteboardItem.timestamp, order: .reverse)]
         return fetch
     }
 
@@ -51,10 +51,10 @@ struct MenuBarView: View {
                         if !items.isEmpty {
                             ForEach(items.indices, id: \.self) { index in
                                 HStack {
-                                    Text(items[index].value.trimmingCharacters(in: .whitespacesAndNewlines))
+                                    Text(items[index].string.trimmingCharacters(in: .whitespacesAndNewlines))
                                         .lineLimit(2)
                                         .multilineTextAlignment(.leading)
-                                        .help(Text(items[index].value))
+                                        .help(Text(items[index].string))
                                     Spacer()
                                     HStack {
                                         Button(action: {
@@ -120,15 +120,15 @@ struct MenuBarView: View {
         }
     }
 
-    private func addItemToPastBoard(item: StringItem) {
-        ClipboardWatcher.shared.inAppPastingInProgress = true
+    private func addItemToPastBoard(item: PasteboardItem) {
+//        ClipboardWatcher.shared.inAppPastingInProgress = true
         #if os(macOS)
         NSPasteboard.general.prepareForNewContents()
-        _ = NSPasteboard.general.setString(item.value, forType: .string)
+        _ = NSPasteboard.general.setString(item.string, forType: .string)
         #endif
     }
 
-    private func deleteItem(item: StringItem) {
+    private func deleteItem(item: PasteboardItem) {
         withAnimation {
             modelContext.delete(item)
         }
@@ -147,5 +147,5 @@ struct MenuBarView: View {
 
 #Preview {
     MenuBarView()
-        .modelContainer(for: StringItem.self, inMemory: true)
+        .modelContainer(for: PasteboardItem.self, inMemory: true)
 }

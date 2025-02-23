@@ -116,7 +116,7 @@ struct ClipboardList: View {
     }
 
     private func addItemToPastBoard(item: StringItem) {
-        ClipboardWatcher.shared.inAppPastingInProgress = true
+//        ClipboardWatcher.shared.inAppPastingInProgress = true
         #if os(macOS)
         NSPasteboard.general.prepareForNewContents()
         _ = NSPasteboard.general.setString(item.value, forType: .string)
@@ -125,7 +125,7 @@ struct ClipboardList: View {
         #endif
         showSnackBar = true
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
-            showSnackBar = false
+//            showSnackBar = false
         }
     }
 }
