@@ -4,8 +4,11 @@
 //
 //  Created by Gokul P on 2/20/25.
 //
-
+#if os(macOS)
 import AppKit
+#else
+import UIKit
+#endif
 import Foundation
 import SwiftData
 
@@ -17,8 +20,12 @@ final class PasteboardItem: @unchecked Sendable {
     var timestamp: Date = Date()
 
     init(_ object: Any) {
-        if let image = object as? NSImage {
+        if let image = object as? PlatformImage {
+            #if os(macOS)
             self.image = image.tiffRepresentation
+            #else
+            self.image = image.pngData()
+            #endif
         } else {
             self.image = nil
         }

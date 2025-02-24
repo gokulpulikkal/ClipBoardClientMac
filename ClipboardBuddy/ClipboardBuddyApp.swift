@@ -49,9 +49,6 @@ struct ClipboardBuddyApp: App {
             LaunchView()
                 .modelContainer(sharedModelContainer)
 //                .modelContainer(previewContainer)
-                .onAppear(perform: {
-                    ClipboardWatcher.shared.startWatching(using: sharedModelContainer.mainContext)
-                })
         }
         #endif
     }

@@ -83,6 +83,7 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4BC52ABC2D67BE1B0099D2EC /* ClipboardManager */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ClipboardManager; sourceTree = "<group>"; };
 		4BC52C1C2D6837DB0099D2EC /* ClipboardManager */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ClipboardManager; sourceTree = "<group>"; };
+		4BC52C2F2D6AF96F0099D2EC /* Aliases */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Aliases; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +143,7 @@
 		4B7346C12C878355008C81E5 /* ClipboardBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				4BC52C2F2D6AF96F0099D2EC /* Aliases */,
 				4BC52ABC2D67BE1B0099D2EC /* ClipboardManager */,
 				4BA6F5E82CBD7A5200031B51 /* Enums */,
 				4BA6F5DE2CBB298F00031B51 /* Views */,
@@ -251,6 +253,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				4BC52ABC2D67BE1B0099D2EC /* ClipboardManager */,
+				4BC52C2F2D6AF96F0099D2EC /* Aliases */,
 			);
 			name = ClipboardBuddy;
 			packageProductDependencies = (

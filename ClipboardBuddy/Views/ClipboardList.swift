@@ -50,6 +50,7 @@ struct ClipboardList: View {
                                             HStack {
                                                 Button(action: {
                                                     addItemToPastBoard(item: item)
+                                                    deleteItem(item: item)
                                                 }, label: {
                                                     Image(systemName: "document.on.document")
                                                 })

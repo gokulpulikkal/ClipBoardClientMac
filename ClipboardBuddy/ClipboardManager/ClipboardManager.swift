@@ -10,13 +10,13 @@ import SwiftUI
 
 actor ClipboardManager {
 
-    private let pasteboard: NSPasteboard
+    private let pasteboard: Pasteboard
     private let pollingInterval: Double
     private var observingTypeClass: [AnyClass]
 
     init(
-        pasteboard: NSPasteboard = .general,
-        observingTypeClass: [AnyClass] = [NSImage.self, NSColor.self, NSString.self, NSURL.self],
+        pasteboard: Pasteboard = .general,
+        observingTypeClass: [AnyClass] = [PlatformImage.self, NSString.self, NSURL.self],
         pollingInterval: Double = 0.05
     ) {
         self.pasteboard = pasteboard
@@ -41,14 +41,38 @@ actor ClipboardManager {
         _ currentChangeCount: Int,
         _ continuation: AsyncThrowingStream<PasteboardItem, any Error>.Continuation
     ) {
+        #if os(macOS)
         guard currentChangeCount != pasteboard.changeCount,
               let pasteboardObjects = pasteboard.readObjects(forClasses: observingTypeClass)
         else {
             return
         }
+        #else
+        guard currentChangeCount != pasteboard.changeCount else {
+            return
+        }
+        let pasteboardObjects = getPasteboardObjects()
+
+        #endif
         pasteboardObjects.forEach { object in
             continuation.yield(PasteboardItem(object))
         }
     }
+
+    #if os(macOS)
+    #else
+    private func getPasteboardObjects() -> [Any] {
+        if pasteboard.hasURLs {
+            return pasteboard.urls ?? []
+        }
+        if pasteboard.hasImages {
+            return pasteboard.images ?? []
+        }
+        if pasteboard.hasStrings {
+            return pasteboard.strings ?? []
+        }
+        return []
+    }
+    #endif
 
 }

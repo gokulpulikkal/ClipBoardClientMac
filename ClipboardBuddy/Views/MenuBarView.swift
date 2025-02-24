@@ -59,6 +59,7 @@ struct MenuBarView: View {
                                     HStack {
                                         Button(action: {
                                             addItemToPastBoard(item: items[index])
+                                            deleteItem(item: items[index])
                                         }, label: {
                                             Image(systemName: "document.on.document")
                                         })
