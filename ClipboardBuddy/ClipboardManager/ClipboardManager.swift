@@ -36,6 +36,16 @@ actor ClipboardManager {
             }
         }
     }
+    
+    func addItemToPasteboard(_ pasteboardItem: PasteboardItem) {
+        self.pasteboard.prepareForNewContents()
+        self.pasteboard.clearContents()
+        if let _ = pasteboardItem.image, let url = pasteboardItem.url {
+            self.pasteboard.setString(url.absoluteString, forType: .fileURL)
+        } else {
+            self.pasteboard.setString(pasteboardItem.string, forType: .string)
+        }
+    }
 
     private func checkPasteboardForChanges(
         _ currentChangeCount: Int,
@@ -43,7 +53,7 @@ actor ClipboardManager {
     ) {
         #if os(macOS)
         guard currentChangeCount != pasteboard.changeCount,
-              let pasteboardObjects = pasteboard.readObjects(forClasses: observingTypeClass)
+              let pasteboardItems = pasteboard.pasteboardItems
         else {
             return
         }
@@ -54,7 +64,7 @@ actor ClipboardManager {
         let pasteboardObjects = getPasteboardObjects()
 
         #endif
-        pasteboardObjects.forEach { object in
+        pasteboardItems.forEach { object in
             continuation.yield(PasteboardItem(object))
         }
     }
