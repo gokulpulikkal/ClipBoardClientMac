@@ -12,3 +12,4 @@ enum ScreenTypes {
     case Settings
     case Info
 }
+
